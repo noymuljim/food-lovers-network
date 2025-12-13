@@ -70,7 +70,7 @@ toast.error(error)
                <VscOpenPreview />
 
 
-              All Review
+              All Reviews
              </NavLink>
            </li>
 
