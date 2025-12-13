@@ -14,11 +14,11 @@ const Navbar = () => {
   const handleLogOut=()=>{
     logout()
     .then(() => {
-  // Sign-out successful.
+  toast.success('Sign-out successful.')
 })
 .catch((error) => {
   console.log(error)
-toast.success('logout successful')
+toast.error(error)
 });
 
   }
