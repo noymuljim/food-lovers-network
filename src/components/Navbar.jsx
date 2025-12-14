@@ -66,7 +66,7 @@ toast.error(error)
            </li>
 
            <li>
-             <NavLink to={"/"}>
+             <NavLink to={"/allReviews"}>
                <VscOpenPreview />
 
 

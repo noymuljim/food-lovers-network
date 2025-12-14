@@ -9,6 +9,7 @@ const AuthProvider = ({ children }) => {
 
 
     const [user, setUser] = useState(null);
+    const[loading,setLoading]=useState(true)
 
     //register
     const createUser = (email, password) => {
@@ -33,7 +34,8 @@ const logout=()=>{
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            //console.log(currentUser)
+            setLoading(false)
+            
         })
         return () => {
             unsubscribe()
@@ -44,7 +46,7 @@ const logout=()=>{
 
     
     const authInfo = {
-        user,createUser,signinUser,google,logout
+        user,createUser,signinUser,google,logout,loading
     }
 
    

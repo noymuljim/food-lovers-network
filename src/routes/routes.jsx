@@ -6,6 +6,9 @@ import Register from "../pages/Home/Register";
 import AuthLayout from "../Layouts/AuthLayout";
 import AddReview from "../components/AddReview";
 import MyReview from "../components/MyReview";
+import AllReviews from "../pages/AllReviews";
+import Details from "../pages/Home/Details";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -14,16 +17,31 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader:()=>fetch('http://localhost:4000/latest-reviews')
       },
       {
         path: '/addReview',
-        element: <AddReview></AddReview>
+        element: <PrivateRoute><AddReview></AddReview></PrivateRoute>
       },
       {
         path: '/myReview',
-        element: <MyReview></MyReview>
+        element: <PrivateRoute>
+          <MyReview></MyReview>
+        </PrivateRoute>
       },
+      {
+        path:'/allReviews',
+        element:<AllReviews></AllReviews>,
+        loader:()=> fetch('http://localhost:4000/reviews')
+      },
+      {
+        path:'/revirw-Details/:id',
+        element: <PrivateRoute>
+          <Details></Details>,
+        </PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:4000/reviews/${params.id}`)
+      }
 
 
 
