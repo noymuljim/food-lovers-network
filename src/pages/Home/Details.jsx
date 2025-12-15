@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from 'react';
-import { Link, useLoaderData, useParams } from 'react-router';
+import { Link,  useParams } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 
 const Details = () => {
