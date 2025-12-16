@@ -1,47 +1,90 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import barger from '../../assets/brg.png'
 import chiken from '../../assets/chiken.png'
 import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
-    const { createUser ,google} = use(AuthContext);
+    const { createUser, google, updateUser, setUser } = use(AuthContext);
+        const [show, setShow] = useState(false)
+
+    const navigate = useNavigate()
 
     const handleRegister = (e) => {
         e.preventDefault()
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const photo = e.target.photo.value;
 
-        console.log({ name, email, password })
+       // console.log({ name, email, password })
+
+
+       const regExp=/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/
+
+        if(!regExp.test(password)){
+            toast.error('Password must be at least 6 characters long and include both uppercase and lowercase letters');
+            return;
+        }
+
+
+
+
+
+
 
 
         createUser(email, password)
-            .then((result) => {
-                console.log(result.user);
+            .then(result => {
+                const user = (result.user)
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photo })
+                        toast.success('User created successful!')
+                        navigate('/')
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        setUser(user)
+                    })
+
 
             })
             .catch((error) => {
-                console.log(error);
+                // const errorCode = error.code;
+                const errorMessage = error.message;
 
+                toast.error(errorMessage)
             });
+
+
+
+
+
+
+
+
+
+
 
     }
 
 
-    const handlegoogle=()=>{
-       
-    google()
-      .then((result) => {
-        
-        console.log(result.user);
-        toast.success('User created successful!')
-       
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error(error.message);
-      });
+    const handlegoogle = () => {
+
+        google()
+            .then((result) => {
+
+                console.log(result.user);
+                toast.success('User created successful!')
+
+            })
+            .catch((error) => {
+                console.log(error);
+                toast.error(error.message);
+            });
 
     }
 
@@ -88,18 +131,30 @@ const Register = () => {
                                     <label className="label">Photo URL</label>
                                     <input
                                         type="text"
-                                        name="photoURL"
+                                        name="photo"
                                         className="input rounded-full focus:border-0 focus:outline-gray-200"
                                         placeholder="Past your photo url here"
                                     />
 
-                                    <label className="label">Password</label>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        className="input rounded-full focus:border-0 focus:outline-gray-200"
-                                        placeholder="Password"
-                                    />
+                                   
+
+
+                                    <div className="relative">
+                                        <label className="block text-sm mb-1">Password</label>
+                                        <input
+                                            type={show ? "text" : "password"}
+                                            name="password"
+                                            placeholder="••••••••"
+                                            required
+                                             className="input rounded-full focus:border-0 focus:outline-gray-200"
+                                        />
+                                        <span onClick={() => setShow(!show)} className="absolute right-[28px] top-[38px]  cursor-pointer z-50">
+                                            {show ? <FaEye /> : <FaEyeSlash />
+                                            }
+                                        </span>
+                                    </div>
+
+
 
                                     <button className="btn text-white mt-4 rounded-full customBtn">
                                         Register
