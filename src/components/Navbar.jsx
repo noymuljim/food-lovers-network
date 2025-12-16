@@ -7,6 +7,7 @@ import { AuthContext } from '../Context/AuthContext';
 
 import userlogo from '../assets/user-login-icon-14.png'
 import { toast } from 'react-toastify';
+import { FcLike } from 'react-icons/fc';
 
 const Navbar = () => {
   const {user,logout}=use(AuthContext)
@@ -71,6 +72,12 @@ toast.error(error)
 
 
               All Reviews
+             </NavLink>
+           </li>
+           <li>
+             <NavLink to={"/myFavs"}>
+             <FcLike />
+             My Favourite
              </NavLink>
            </li>
 

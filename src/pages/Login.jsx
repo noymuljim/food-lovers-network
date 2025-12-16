@@ -76,7 +76,7 @@ const Login = () => {
             <div className='w-[1200px] mx-auto'>
                 <div className='flex flex-col md:flex-row justify-between items-center md:items-start gap-8'>
 
-                    {/* Images */}
+                    
                     <div>
                         <div className='flex justify-center items-center gap-4'>
                             <img className='h-[300px] w-[300px]' src={barger} alt="" />
@@ -87,7 +87,7 @@ const Login = () => {
 
 
 
-                    {/* Login Card */}
+                   
                     <div className="card bg-base-100 w-full max-w-sm shadow-2xl border border-gray-200">
                         <div className="card-body">
                             <h1 className="text-3xl font-bold text-center">Login</h1>
