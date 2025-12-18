@@ -34,7 +34,7 @@ toast.error(error)
           </div>
           <ul
             tabIndex="0"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[9999] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content  bg-white text-black rounded-box z-[9999] mt-3 w-52 p-2 shadow"
           >
 
           <li>
@@ -45,11 +45,15 @@ toast.error(error)
            </li>
 
            <li>
-             <NavLink to={"/"}>
+             <NavLink to={"/allReviews"}>
                <VscOpenPreview />
-
-
               All Review
+             </NavLink>
+           </li>
+             <li>
+             <NavLink to={"/myFav"}>
+             <FcLike />
+             My Favourite
              </NavLink>
            </li>
 
@@ -75,7 +79,7 @@ toast.error(error)
              </NavLink>
            </li>
            <li>
-             <NavLink to={"/myFavs"}>
+             <NavLink to={"/myFav"}>
              <FcLike />
              My Favourite
              </NavLink>
@@ -107,7 +111,7 @@ toast.error(error)
             </div>
             <ul
               tabIndex="-1"
-              className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
+              className="menu  menu-sm dropdown-content  bg-white text-black rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               <div className=" pb-3 border-b border-b-gray-200">
                 <li className="text-sm font-bold">{user.displayName}</li>
@@ -140,7 +144,7 @@ toast.error(error)
               <li>
                 <button
                    onClick={handleLogOut}
-                  className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white"
+                  className="btn rounded-full text-left bg-black text-white"
                 >
              Logout
                 </button>

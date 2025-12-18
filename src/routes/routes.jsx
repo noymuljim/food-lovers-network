@@ -9,7 +9,6 @@ import MyReview from "../components/MyReview";
 import AllReviews from "../pages/AllReviews";
 import Details from "../pages/Home/Details";
 import PrivateRoute from "./PrivateRoute";
-import MyFavs from "../pages/MyFavs";
 
 export const router = createBrowserRouter([
   {
@@ -36,12 +35,8 @@ export const router = createBrowserRouter([
         element:<AllReviews></AllReviews>,
         loader:()=> fetch('http://localhost:4000/reviews')
       },
-      {
-        path:'/myFavs',
-        element:<PrivateRoute>
-          <MyFavs></MyFavs>
-        </PrivateRoute>,
-      },
+      
+     
       {
         path:'/revirw-Details/:id',
         element: <PrivateRoute>

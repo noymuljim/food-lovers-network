@@ -125,6 +125,8 @@ const handleDelete = (id) => {
     <div>
       <h2 className="text-2xl font-bold mb-4">My Reviews</h2>
 
+
+
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead className="hidden md:table-header-group">
