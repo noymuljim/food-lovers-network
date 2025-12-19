@@ -127,7 +127,7 @@ const handleDelete = (id) => {
 
 
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto  max-w-7xl mx-auto">
         <table className="table w-full">
           <thead className="hidden md:table-header-group">
             <tr>
@@ -171,7 +171,7 @@ const handleDelete = (id) => {
                 <td className="block md:table-cell">
                   <button
                     onClick={() => handleDelete(review._id)}
-                    className="btn btn-sm btn-error w-full md:w-auto"
+                    className="btn btn-sm  bg-red-500 text-white rounded-4xl w-full md:w-auto"
                   >
                     Delete
                   </button>

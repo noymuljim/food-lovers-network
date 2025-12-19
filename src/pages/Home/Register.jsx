@@ -3,8 +3,8 @@ import barger from '../../assets/brg.png'
 import chiken from '../../assets/chiken.png'
 import { AuthContext } from '../../Context/AuthContext';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from 'react-router';
 
 const Register = () => {
     const { createUser, google, updateUser, setUser } = use(AuthContext);

@@ -51,7 +51,7 @@ toast.error(error)
              </NavLink>
            </li>
              <li>
-             <NavLink to={"/myFav"}>
+             <NavLink to={"/MyFavourite"}>
              <FcLike />
              My Favourite
              </NavLink>
@@ -79,7 +79,7 @@ toast.error(error)
              </NavLink>
            </li>
            <li>
-             <NavLink to={"/myFav"}>
+             <NavLink to={"/MyFavourite"}>
              <FcLike />
              My Favourite
              </NavLink>
